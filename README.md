@@ -1,3 +1,4 @@
 # ParonAB 
 
-paronab.meteor.com
+https://paronab.meteor.com
+
