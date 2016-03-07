@@ -23,14 +23,14 @@
 </template>
 
 <template name="home">
-	<div class="container">
+	<div class="container"> 
 
     	<input type="button" class="btn btn-success" id="btn-status" onclick="location.href='{{pathFor route='show_products'}}';" value="Aktuell lagerstatus">
 
 		<h4>Rapportera ny varuleverans:	</h4>
 		<div class="btn-group" data-toggle="buttons">
-			<a href="{{pathFor route='home'}}"><button type="button" class="btn btn-default active">Inleverans</button></a>
-			<a href="{{pathFor route='form_out'}}"><button type="button" class="btn btn-default">Utleverans</button></a>		  	
+			<a href="{{pathFor route='home'}}"><button type="button" class="btn btn-default active" id="radioactive">Inleverans</button></a>
+			<a href="{{pathFor route='form_out'}}"><button type="button" class="btn btn-default" id="radiobutton">Utleverans</button></a>		  	
 		</div>
 
 		<div class="forms"> 
@@ -52,20 +52,20 @@
 			<div class="help-block with-errors"></div>
 		</div>
 		
-		<input type="submit" class="btn btn-default" id="btn-submit" value="Skicka in">
+		<input type="submit" class="btn btn-default" id="btn-submit" value="Skicka inleverans">
 	</form>
 </template>
 
 <template name="form_out">
 
-	<div class="container">
+	<div class="container"> 
 		<input type="button" class="btn btn-success" id="btn-status" onclick="location.href='{{pathFor route='show_products'}}';" value="Aktuell lagerstatus">
 
 		<h4>Rapportera ny varuleverans:	</h4>
 
 		<div class="btn-group" data-toggle="buttons">
-			<a href="{{pathFor route='home'}}"><button type="button" class="btn btn-default">Inleverans</button></a>
-			<a href="{{pathFor route='form_out'}}"><button type="button" class="btn btn-default active">Utleverans</button></a>		  	
+			<a href="{{pathFor route='home'}}"><button type="button" class="btn btn-default" id="radiobutton">Inleverans</button></a>
+			<a href="{{pathFor route='form_out'}}"><button type="button" class="btn btn-default active" id="radioactive">Utleverans</button></a>	
 		</div>
 
 		<div class="forms"> 
@@ -80,7 +80,7 @@
 					<div class="help-block with-errors"></div>
 				</div>
 
-				<input type="submit" class="btn btn-default" id="btn-submit" value="Skicka in">
+				<input type="submit" class="btn btn-default" id="btn-submit" value="Skicka utleverans">
 			</form>
 		</div>
 	</div>
@@ -109,23 +109,25 @@
 <!-- Shows all products in mongoDB in table -->
 <template name="show_products">
 	<div class="container">
-		<table class="table table-bordered">
-			<tbody>
-				<tr>
-					<th>Produkt</th>
-					<th>Lager</th>
-					<th>Antal</th>
-				</tr>
-				{{#each product}}
-				<tr class="active">
-					<td>{{name}}</td>
-					<td>{{location}}</td>
-					<td>{{quantity}}</td>
-				</tr>
-				{{/each}}
-			</tbody>
-		</table>
-		<input type="button" class="btn btn-success" id="btn-back" onclick="location.href='{{pathFor route='home'}}';" value="Gå tillbaka">
+		<div class="productTable">
+			<table class="table table-bordered">
+				<tbody>
+					<tr>
+						<th>Produkt</th>
+						<th>Lager</th>
+						<th>Antal</th>
+					</tr>
+					{{#each product}}
+					<tr class="active">
+						<td>{{name}}</td>
+						<td>{{location}}</td>
+						<td>{{quantity}}</td>
+					</tr>
+					{{/each}}
+				</tbody>
+			</table>
+			<input type="button" class="btn btn-success" id="btn-back" onclick="location.href='{{pathFor route='home'}}';" value="Gå tillbaka">
+		</div>
 	</div>
 </template>
 

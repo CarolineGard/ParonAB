@@ -86,7 +86,6 @@ if (Meteor.isClient) {
     'change select' : function (event,template) {
       //Create a session for the selected product in drop down 1
       Session.set("selectedProduct", event.target.value);
-      // console.log(event);
     }
   });
 
@@ -94,7 +93,6 @@ if (Meteor.isClient) {
     'change select' : function (event,template) {
       //Create a session for the selected location in drop down 2
       Session.set("selectedLocation", event.target.value);
-      // console.log(event);
     }
   });
 
